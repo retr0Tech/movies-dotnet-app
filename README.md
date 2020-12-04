@@ -24,6 +24,9 @@ Al seleccionar una película, el detalle de la misma es presentado. Este detall
 -	Calificación
 -	Indicador de favorita (puede ser presionado para agregarla o removerla de dicha cuadrícula)
 
+## Asunciones
+- Asuma que la aplicación siempre es usada por el mismo usuario. En otras palabras, no hay necesidad de: inicio de sesión, cierre de sesión, ni de mantener distintas listas de favoritos para cada usuario.
+
 ## Reglas 
 
 -	Use la plataforma de la posicion que esta aplicando (ReactJS, ReactNative, Angular, ObjectiveC, Swift, Kotlin...)
