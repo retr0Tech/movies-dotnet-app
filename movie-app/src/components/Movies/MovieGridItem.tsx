@@ -28,7 +28,7 @@ export const MovieGridItem = () => {
 				</div>
 				<div className="product-grid-item-content">
 					
-					<img onError={ (e) => (e.target as any).src = defaultImg } src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.original_title} />
+					<img onError={ (e) => (e.target as any).src = defaultImg } src={movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : defaultImg} alt={movie.original_title} />
 					
 					<div className="product-description">{movie.overview}</div>
 					<div className="product-grid-item-bottom">

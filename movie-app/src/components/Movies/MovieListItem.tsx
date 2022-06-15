@@ -1,6 +1,7 @@
 import { Rating } from "primereact/rating";
 import { Button } from 'primereact/button';
 import { Link } from "react-router-dom";
+import  defaultImg from '../../assets/defaultImg.png';
 
 export const MovieListItem = () => {
 	return (movie: any) => {
@@ -8,7 +9,7 @@ export const MovieListItem = () => {
 		{
 			return (<div className="col-12">
 			<div className="product-list-item">
-				<img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.original_title} />
+				<img onError={ (e) => (e.target as any).src = defaultImg } src={movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : defaultImg} alt={movie.original_title} />
 				<div className="product-list-detail">
 				<Link to={{ pathname: `/movie/${movie.id}` }} className="no-style">
 									<h3
