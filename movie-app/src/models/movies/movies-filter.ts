@@ -5,7 +5,7 @@ export class MoviesFilter {
     constructor(
         public id: string,
         public page: number,
-        public sort_by: MovieSortOptions,
+        public sort_by: MovieSortOptions = MovieSortOptions.VoteAverageDesc,
         public vote_average: number,
         public with_genres: GenreResponse[]
     ) {}

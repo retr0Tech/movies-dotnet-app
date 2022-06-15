@@ -45,17 +45,6 @@ export const getFavoriteMoviesAsync = (
     };
 }
 
-export const getGenresAsync = (
-    getGenres: () => Promise<GenericResponse<GenresResponse>>
-): AppThunk => {
-    return async (dispatch: any, getState: any) => {
-        if (!getState().movies.genres || getState().movies.genres.length === 0) {
-            const genresResponse = await getGenres();
-            dispatch(setGenres(genresResponse.data.genres));
-        }
-    };
-}
-
 export const moviesSlice = createSlice({
     name: 'movies',
     initialState,
@@ -128,9 +117,6 @@ export const moviesSlice = createSlice({
             sessionStorage.setItem('favorite-movies', JSON.stringify(favoriteMoviesClone));
             state.favoriteMovies = favoriteMoviesClone;
             state.movies = moviesClone;
-        },
-        setGenres: (state, action: PayloadAction<GenreResponse[]>) => {
-            state.genres = action.payload;
         }
     }
 });
@@ -139,7 +125,6 @@ export const {
     setMovies,
     setFavoriteMovies,
     setFavoriteMovie,
-    setGenres
 } = moviesSlice.actions;
 
 export const selectMovies = (state: RootState) => state.movies.movies;

@@ -22,7 +22,7 @@ const getMoviesFilterSchema = () => {
     });
     return moviesFilter;
 }
-export const defaultMoviesFilter: MoviesFilter = new MoviesFilter('1', 1, MovieSortOptions.PopularityDesc, 10, []);
+export const defaultMoviesFilter: MoviesFilter = new MoviesFilter('1', 1, MovieSortOptions.VoteAverageAsc, 10, []);
 const defaultNormalizedMoviesFilter = normalize(defaultMoviesFilter, getMoviesFilterSchema()) as NormalizedSchemaMoviesFilter;
 
 const initialState: MoviesFilterState = {

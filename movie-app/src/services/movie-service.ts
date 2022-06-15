@@ -15,6 +15,8 @@ const accountPath = 'account';
 const favoritePath = 'favorite';
 
 export const getMovies = () => {
+	// debugger;
+
     const _get = get<MoviesResponse>();
     return async (moviesFilter: MoviesFilter) => {
         const withGenres: string = moviesFilter.with_genres.map(x => x.id).join(',');

@@ -6,42 +6,43 @@ import { RatingChangeParams } from "primereact/rating";
 import { useState } from "react";
 import MovieListItem from './MovieListItem';
 import MovieGridItem from './MovieGridItem';
+import { MovieResponse } from '../../models/movies/movie-response';
+import { MoviesFilter } from '../../models/movies/movies-filter';
+import { SelectItem } from 'primereact/selectitem';
+import { MovieSortOptions } from '../../enums/movie-sort-options';
 
-export const MovieGrid = ({movies}: any) => {
+export const MovieGrid = ({
+    movies,
+    totalRecords,
+    moviesFilter,
+    isLoading,
+    onChangeFilter
+}: {
+    movies: MovieResponse[],
+    totalRecords: number,
+    moviesFilter: MoviesFilter,
+    isLoading: boolean,
+    onChangeFilter: (moviesFilter: MoviesFilter) => void
+}) => {
     const [layout, setLayout] = useState('grid');
-    const [sortKey, setSortKey] = useState('!vote_average');
-    const [sortOrder, setSortOrder] = useState(null as any);
-    const [sortField, setSortField] = useState('!vote_average');
+	const [sortOption, setSortOption] = useState(moviesFilter.sort_by);
 	const [first, setFirst] = useState(0);
 	const perPage = 20;
 
-	const sortOptions = [
-        {label: 'Rating asc', value: '!vote_average'},
-        {label: 'Name asc', value: 'original_title'},
-        {label: 'Year asc', value: '!release_date'},
-		{label: 'Rating desc', value: 'vote_average'},
-        {label: 'Name desc', value: '!original_title'},
-        {label: 'Year desc', value: 'release_date'},
+	const sortOptions: SelectItem[] = [
+        {label: 'Rating Asc', value: MovieSortOptions.VoteAverageDesc},
+        {label: 'Rating Desc', value: MovieSortOptions.VoteAverageAsc},
+        {label: 'Name Asc', value: MovieSortOptions.OriginalTitleDesc},
+        {label: 'Name Desc', value: MovieSortOptions.OriginalTitleAsc},
+        {label: 'Year Asc', value: MovieSortOptions.ReleaseDateDesc},
     ];
-	const onSortChange = (event: any) => {
-        const value = event.value;
-
-        if (value.indexOf('!') === 0) {
-            setSortOrder(-1);
-            setSortField(value.substring(1, value.length));
-            setSortKey(value);
-        }
-        else {
-            setSortOrder(1);
-            setSortField(value);
-            setSortKey(value);
-        }
+	const onSortChange = (event: DropdownChangeParams) => {
+        const selectedSortOption = event.value;
+        setSortOption(selectedSortOption);
+        const moviesFilterClone = { ...moviesFilter };
+        moviesFilterClone.sort_by = selectedSortOption;
+        onChangeFilter(moviesFilterClone);
     }
-	useEffect(() => {
-        setSortOrder(-1);
-		setSortField('vote_average');
-		console.log(movies)
-    }, []);
 	const renderHeader = () => {
         return (
             <div className="grid grid-nogutter">
@@ -49,7 +50,7 @@ export const MovieGrid = ({movies}: any) => {
 					<p>Sort By</p>
 				</div>
                 <div className="col-5" style={{textAlign: 'left'}}>
-                    <Dropdown options={sortOptions} value={sortKey} optionLabel="label" placeholder="Sort By" onChange={onSortChange}/>
+                    <Dropdown value={ sortOption } options={ sortOptions } optionLabel="label" placeholder="Sort By" onChange={onSortChange}/>
                 </div>
                 <div className="col-6" style={{textAlign: 'right'}}>
                     <DataViewLayoutOptions layout={layout} onChange={(e) => setLayout(e.value)} />
@@ -57,21 +58,30 @@ export const MovieGrid = ({movies}: any) => {
             </div>
         );
     }
+	const onChangePage = (event: any) => {
+        const startIndex = event.first;
+        setFirst(startIndex);
+        const page: number = (startIndex / perPage) + 1;
+        const moviesFilterClone = { ...moviesFilter };
+        moviesFilterClone.page = page;
+        onChangeFilter(moviesFilterClone);
+    };
 	const itemTemplate = layout === 'list' ? MovieListItem() : MovieGridItem();
     const header = renderHeader();
 	return (
 			<div className="dataview-demo">
 				<div className="card">
 					<DataView 
-						value={movies.results} 
+						value={movies} 
 						layout={layout} 
 						header={header}
-						itemTemplate={itemTemplate} 
+						itemTemplate={itemTemplate}
+						lazy
 						paginator 
-						rows={12}
-						totalRecords={ movies.total_pages }
-						sortOrder={sortOrder} 
-						sortField={sortField} />
+						rows={20}
+						totalRecords={ totalRecords }
+						onPage={ onChangePage }
+						loading={ isLoading } />
 				</div>
 			</div>
 	)
