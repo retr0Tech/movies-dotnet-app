@@ -30,8 +30,8 @@ export const MovieGrid = ({
 	const perPage = 20;
 
 	const sortOptions: SelectItem[] = [
-        {label: 'Rating Asc', value: MovieSortOptions.VoteAverageDesc},
-        {label: 'Rating Desc', value: MovieSortOptions.VoteAverageAsc},
+        {label: 'Rating Asc', value: MovieSortOptions.VoteAverageAsc},
+        {label: 'Rating Desc', value: MovieSortOptions.VoteAverageDesc},
         {label: 'Name Asc', value: MovieSortOptions.OriginalTitleDesc},
         {label: 'Name Desc', value: MovieSortOptions.OriginalTitleAsc},
         {label: 'Year Asc', value: MovieSortOptions.ReleaseDateDesc},
