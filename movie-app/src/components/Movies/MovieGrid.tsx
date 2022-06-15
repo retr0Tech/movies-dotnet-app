@@ -8,15 +8,20 @@ import MovieListItem from './MovieListItem';
 import MovieGridItem from './MovieGridItem';
 
 export const MovieGrid = ({movies}: any) => {
-	const [products, setProducts] = useState(null as any);
-    const [layout, setLayout] = useState('list');
-    const [sortKey, setSortKey] = useState(null as any);
+    const [layout, setLayout] = useState('grid');
+    const [sortKey, setSortKey] = useState('!vote_average');
     const [sortOrder, setSortOrder] = useState(null as any);
-    const [sortField, setSortField] = useState(null as any);
+    const [sortField, setSortField] = useState('!vote_average');
+	const [first, setFirst] = useState(0);
+	const perPage = 20;
 
 	const sortOptions = [
-        {label: 'Rating', value: '!price'},
-        {label: 'Name', value: 'price'},
+        {label: 'Rating asc', value: '!vote_average'},
+        {label: 'Name asc', value: 'original_title'},
+        {label: 'Year asc', value: '!release_date'},
+		{label: 'Rating desc', value: 'vote_average'},
+        {label: 'Name desc', value: '!original_title'},
+        {label: 'Year desc', value: 'release_date'},
     ];
 	const onSortChange = (event: any) => {
         const value = event.value;
@@ -32,10 +37,18 @@ export const MovieGrid = ({movies}: any) => {
             setSortKey(value);
         }
     }
+	useEffect(() => {
+        setSortOrder(-1);
+		setSortField('vote_average');
+		console.log(movies)
+    }, []);
 	const renderHeader = () => {
         return (
             <div className="grid grid-nogutter">
-                <div className="col-6" style={{textAlign: 'left'}}>
+				<div className="col-1" style={{alignSelf: 'center'}}>
+					<p>Sort By</p>
+				</div>
+                <div className="col-5" style={{textAlign: 'left'}}>
                     <Dropdown options={sortOptions} value={sortKey} optionLabel="label" placeholder="Sort By" onChange={onSortChange}/>
                 </div>
                 <div className="col-6" style={{textAlign: 'right'}}>
@@ -55,7 +68,8 @@ export const MovieGrid = ({movies}: any) => {
 						header={header}
 						itemTemplate={itemTemplate} 
 						paginator 
-						rows={10}
+						rows={12}
+						totalRecords={ movies.total_pages }
 						sortOrder={sortOrder} 
 						sortField={sortField} />
 				</div>
@@ -63,3 +77,7 @@ export const MovieGrid = ({movies}: any) => {
 	)
 }
 export default MovieGrid;
+
+function useMountEffect(arg0: () => void) {
+	throw new Error('Function not implemented.');
+}

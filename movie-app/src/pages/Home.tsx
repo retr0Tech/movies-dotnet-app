@@ -15,6 +15,7 @@ export const Home = () => {
 				console.error(error);
 				movieData = []
 			}
+			console.log(movieData);
 			setMovies(movieData);
 		})();
     }, []);

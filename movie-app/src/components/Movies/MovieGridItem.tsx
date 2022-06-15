@@ -9,29 +9,34 @@ export const MovieGridItem = () => {
 		if (movie) {
 		return (<div className="col-12 md:col-4">
 			<div className="product-grid-item card">
+			<div className='product-badge' style={{float: 'left'}}><i className="pi pi-star"></i></div>
+
 				<div className="product-grid-item-top">
 					<div>
-						<i className="pi pi-ticket"></i>
-						{/* <span className="product-category">{data.category}</span> */}
+						<Link to={{ pathname: `/movie/${movie.id}` }} className="no-style">
+										<h3
+											className="p-card-title"
+											style={{ cursor: 'pointer', outline: 'none' }}
+										>
+											{ movie.original_title }
+										</h3>
+						</Link>
 					</div>
+						
+						{/* <span className="product-category">{data.category}</span> */}
 				</div>
 				<div className="product-grid-item-content">
+					
 					<img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.original_title} />
-					<Link to={{ pathname: `/movie/${movie.id}` }} className="no-style">
-									<h3
-										className="p-card-title"
-										style={{ cursor: 'pointer', outline: 'none' }}
-									>
-										{ movie.original_title }
-									</h3>
-					</Link>
+					
 					<div className="product-description">{movie.overview}</div>
+					<div className="product-grid-item-bottom">
+						<span className="product-price">{movie.vote_average}/10</span>
+					</div>
 					<Rating value={(movie.vote_average as number)/2} readOnly cancel={false}></Rating>
-					<p>{movie.vote_average}/10</p>
 				</div>
-				<div className="product-grid-item-bottom">
-					<span className="product-price">{movie.release_date}</span>
-				</div>
+				<p style={{marginTop: '18px'}}>{movie.release_date}</p>
+				
 			</div>
 		</div>)
 		}

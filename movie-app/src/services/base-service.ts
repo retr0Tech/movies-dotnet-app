@@ -5,13 +5,13 @@ const request = <T, K>(): (
     requestPath: string,
     method: string,
     headers: {},
-    payload: K
+    payload?: K
 ) => Promise<GenericResponse<T>> => {
     return async (
         requestPath: string,
         method: string,
         headers: {},
-        payload: K
+        payload?: K
     ) => {
         const baseUrl: string = process.env.REACT_APP_BASE_API_URL|| '';
         const authorizationToken: string = process.env.REACT_APP_API_TOKEN || '';
@@ -55,10 +55,10 @@ export const get = <T>(): (
 };
 
 export const post = <T, K>(): (
-    requestPath: string, payload: K, headers?: {}
+    requestPath: string, payload?: K, headers?: {}
 ) => Promise<GenericResponse<T>> => {
     const _request = request<T, K>();
-    return async (requestPath: string, payload: K, headers: {} = {}) => {
+    return async (requestPath: string, payload?: K, headers: {} = {}) => {
         return await _request(requestPath, 'POST', headers, payload);
     }
 };

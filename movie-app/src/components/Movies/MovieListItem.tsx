@@ -18,13 +18,13 @@ export const MovieListItem = () => {
 										{ movie.original_title }
 									</h3>
 					</Link>
-					<div className="product-description">{movie.overview}</div>
+					<div className="product-description" ><p >{movie.overview}</p></div>
 					<Rating value={movie.vote_average /2} readOnly cancel={false}></Rating>
-					<p>{movie.vote_average}/10</p>
+					<p>{movie.release_date}</p>
 					{/* <i className="pi pi-tag product-category-icon"></i><span className="product-category">{data.category}</span> */}
 				</div>
 				<div className="product-list-action">
-					<span className="product-price">{movie.release_date}</span>
+					<span className="product-price">{movie.vote_average}/10</span>
 				</div>
 			</div>
 		</div>)

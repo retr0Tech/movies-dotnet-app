@@ -1,4 +1,4 @@
-import { get } from "./base-service";
+import { get, post } from "./base-service";
 
 
 const discoverPath = 'discover';
