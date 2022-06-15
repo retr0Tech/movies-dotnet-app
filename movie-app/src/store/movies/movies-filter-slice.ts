@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { normalize, schema, denormalize } from "normalizr";
 import { MovieSortOptions } from "../../enums/movie-sort-options";
 import { GenreResponse } from "../../models/movies/genre-response";
-import { MoviesFilter } from "../../models/movies/movie-filter";
+import { MoviesFilter } from "../../models/movies/movies-filter";
 import { NormalizedMoviesFilter, NormalizedSchemaMoviesFilter } from "../../models/movies/normalized-movies-filter";
 import { RootState } from "../index";
 

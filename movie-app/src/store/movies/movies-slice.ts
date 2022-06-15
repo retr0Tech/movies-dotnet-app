@@ -3,7 +3,7 @@ import { GenericResponse } from "../../models";
 import { GenreResponse } from "../../models/movies/genre-response";
 import { GenresResponse } from "../../models/movies/genres-response";
 import { Movie } from "../../models/movies/movie";
-import { MoviesFilter } from "../../models/movies/movie-filter";
+import { MoviesFilter } from "../../models/movies/movies-filter";
 import { MovieResponse } from "../../models/movies/movie-response";
 import { MoviesResponse } from "../../models/movies/movies-response";
 import { AppThunk, RootState } from "../index";
