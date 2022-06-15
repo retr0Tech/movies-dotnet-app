@@ -9,14 +9,14 @@ import MovieGridItem from './MovieGridItem';
 
 export const MovieGrid = ({movies}: any) => {
 	const [products, setProducts] = useState(null as any);
-    const [layout, setLayout] = useState('grid');
+    const [layout, setLayout] = useState('list');
     const [sortKey, setSortKey] = useState(null as any);
     const [sortOrder, setSortOrder] = useState(null as any);
     const [sortField, setSortField] = useState(null as any);
 
 	const sortOptions = [
-        {label: 'Price High to Low', value: '!price'},
-        {label: 'Price Low to High', value: 'price'},
+        {label: 'Rating', value: '!price'},
+        {label: 'Name', value: 'price'},
     ];
 	const onSortChange = (event: any) => {
         const value = event.value;
@@ -36,7 +36,7 @@ export const MovieGrid = ({movies}: any) => {
         return (
             <div className="grid grid-nogutter">
                 <div className="col-6" style={{textAlign: 'left'}}>
-                    <Dropdown options={sortOptions} value={sortKey} optionLabel="label" placeholder="Sort By Price" onChange={onSortChange}/>
+                    <Dropdown options={sortOptions} value={sortKey} optionLabel="label" placeholder="Sort By" onChange={onSortChange}/>
                 </div>
                 <div className="col-6" style={{textAlign: 'right'}}>
                     <DataViewLayoutOptions layout={layout} onChange={(e) => setLayout(e.value)} />
@@ -44,7 +44,7 @@ export const MovieGrid = ({movies}: any) => {
             </div>
         );
     }
-
+	const itemTemplate = layout === 'list' ? MovieListItem() : MovieGridItem();
     const header = renderHeader();
 	return (
 			<div className="dataview-demo">
@@ -53,7 +53,7 @@ export const MovieGrid = ({movies}: any) => {
 						value={movies.results} 
 						layout={layout} 
 						header={header}
-						itemTemplate={layout === 'list' ? MovieListItem as any : MovieGridItem as any} 
+						itemTemplate={itemTemplate} 
 						paginator 
 						rows={10}
 						sortOrder={sortOrder} 

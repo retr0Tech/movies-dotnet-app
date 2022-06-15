@@ -1,10 +1,11 @@
 import { Rating } from "primereact/rating";
 import { Button } from 'primereact/button';
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
-export const MovieGridItem = ({movieTest}: any) => {
+export const MovieGridItem = () => {
+	
 	return (movie: any) => {
-		console.log(movie);
 		if (movie) {
 		return (<div className="col-12 md:col-4">
 			<div className="product-grid-item card">
@@ -25,10 +26,11 @@ export const MovieGridItem = ({movieTest}: any) => {
 									</h3>
 					</Link>
 					<div className="product-description">{movie.overview}</div>
-					<Rating value={movie.vote_average} readOnly cancel={false}></Rating>
+					<Rating value={(movie.vote_average as number)/2} readOnly cancel={false}></Rating>
+					<p>{movie.vote_average}/10</p>
 				</div>
 				<div className="product-grid-item-bottom">
-					<span className="product-price">${movie.release_date}</span>
+					<span className="product-price">{movie.release_date}</span>
 				</div>
 			</div>
 		</div>)

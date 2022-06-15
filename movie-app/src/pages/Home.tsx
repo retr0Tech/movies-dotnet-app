@@ -26,7 +26,7 @@ export const Home = () => {
 					<MovieGrid movies={ movies }></MovieGrid>
 				</TabPanel>
 				<TabPanel header="Favorites" leftIcon="pi pi-star">
-					
+					<MovieGrid movies={ movies }></MovieGrid>
 				</TabPanel>
 			</TabView>
 		</div>
