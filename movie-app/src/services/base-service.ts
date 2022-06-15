@@ -17,7 +17,7 @@ const request = <T, K>(): (
         const authorizationToken: string = process.env.REACT_APP_API_TOKEN || '';
         const body = payload ? JSON.stringify(payload) : null;
         return new Promise<GenericResponse<T>>((resolve) => {
-            fetch(`${baseUrl}/${requestPath}`, {
+            fetch(`${baseUrl}${requestPath}`, {
                 method,
                 headers: {
                 'Content-Type': 'application/json',

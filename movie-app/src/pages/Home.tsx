@@ -23,9 +23,10 @@ export const Home = () => {
     const [totalFilteredFavoriteMovies, setTotalFilteredFavoriteMovies] = useState(0);
     const [isMoviesGridLoading, setIsMoviesGridLoading] = useState(false);
 
-
-    useEffect(() => {
+	useEffect(() =>{
 		handleSetMovies(moviesFilter);
+	}, [])
+    useEffect(() => {
         const handleSetFavoriteMovies = (newFavoriteMoviesFilter: MoviesFilter) => {
             const newFilteredFavoriteMovies = applyMoviesFilters(favoriteMovies as Movie[], newFavoriteMoviesFilter);
             setFilteredFavoriteMovies(getMoviesByPage(newFilteredFavoriteMovies, newFavoriteMoviesFilter.page));

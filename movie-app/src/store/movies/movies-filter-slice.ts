@@ -17,12 +17,10 @@ export interface MoviesFilterState {
 
 const getMoviesFilterSchema = () => {
     const withGenres = new schema.Entity('with_genres');
-    const moviesFilter = new schema.Entity('moviesFilter', {
-        with_genres: [withGenres]
-    });
+    const moviesFilter = new schema.Entity('moviesFilter', {});
     return moviesFilter;
 }
-export const defaultMoviesFilter: MoviesFilter = new MoviesFilter('1', 1, MovieSortOptions.VoteAverageAsc, 10, []);
+export const defaultMoviesFilter: MoviesFilter = new MoviesFilter('1', 1, MovieSortOptions.VoteAverageDesc);
 const defaultNormalizedMoviesFilter = normalize(defaultMoviesFilter, getMoviesFilterSchema()) as NormalizedSchemaMoviesFilter;
 
 const initialState: MoviesFilterState = {
@@ -63,7 +61,6 @@ export const {
 export const selectMoviesFilter = (state: RootState) => {
     const entities = {
         moviesFilter: state.moviesFilter.moviesFilter,
-        with_genres: state.moviesFilter.moviesFilterGenres
     };
     return denormalize(state.moviesFilter.moviesFilterResult, getMoviesFilterSchema(), entities) as MoviesFilter;
 };

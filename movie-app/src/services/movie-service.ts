@@ -19,9 +19,8 @@ export const getMovies = () => {
 
     const _get = get<MoviesResponse>();
     return async (moviesFilter: MoviesFilter) => {
-        const withGenres: string = moviesFilter.with_genres.map(x => x.id).join(',');
         return await _get(
-            `${discoverPath}/${moviePath}?page=${moviesFilter.page}&sort_by=${moviesFilter.sort_by}&vote_average.lte=${moviesFilter.vote_average}&with_genres=${withGenres}`
+            `${discoverPath}/${moviePath}?page=${moviesFilter.page}&sort_by=${moviesFilter.sort_by}`
         );
     }
 }
@@ -82,8 +81,6 @@ export const getMoviesByPage = (movies: Movie[], page: number): Movie[] => {
 export const applyMoviesFilters = (movies: Movie[], moviesFilter: MoviesFilter): Movie[] => {
     let moviesClone = [...movies];
     moviesClone = sortMovies(moviesClone, moviesFilter.sort_by);
-    moviesClone = filterMoviesByRatingLessThan(moviesClone, moviesFilter.vote_average);
-    moviesClone = filterMoviesByGenresContained(moviesClone, moviesFilter.with_genres);
     return moviesClone;
 }
 export const sortByPopularityDescending = (movies: Movie[]): Movie[] => {
@@ -163,8 +160,4 @@ export const filterMoviesByGenresContained = (movies: Movie[], genres: GenreResp
     } else {
         return movies;
     }
-}
-
-export const filterMoviesByRatingLessThan = (movies: Movie[], voteAverage: number): Movie[] => {
-    return movies.filter((movie: Movie) => movie.vote_average <= voteAverage);
 }
