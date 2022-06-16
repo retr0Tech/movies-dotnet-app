@@ -3,10 +3,11 @@ import { Button } from 'primereact/button';
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import  defaultImg from '../../assets/defaultImg.png';
+import { Movie } from "../../models/movies/movie";
 
 export const MovieGridItem = () => {
 	
-	return (movie: any) => {
+	return (movie: Movie) => {
 		if (movie) {
 		return (<div className="col-12 md:col-4">
 			<div className="product-grid-item card">
