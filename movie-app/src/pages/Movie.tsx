@@ -13,11 +13,8 @@ const Movie = () => {
 	const _getMovie = getMovie();
 
 	useEffect(() => {
-		debugger;
-		console.log(id);
         if (!movie) {
             _getMovie(Number(id)).then((movieDetailResponse: GenericResponse<MovieDetail>) => {
-				console.log(movieDetailResponse)
                 setMovie(movieDetailResponse.data);
             });
         } 

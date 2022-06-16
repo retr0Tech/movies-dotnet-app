@@ -48,7 +48,6 @@ export const Home = () => {
     const handleSetMovies = (newMoviesFilter: MoviesFilter) => {
         setIsMoviesGridLoading(true);
         dispatch(getMoviesAsync(newMoviesFilter, _getMovies)).then((totalMovies: number) => {
-			console.log(movies)
             setTotalMovies(totalMovies);
             setIsMoviesGridLoading(false);
         });
