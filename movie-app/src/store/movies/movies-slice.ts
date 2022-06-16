@@ -1,7 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { GenericResponse } from "../../models";
-import { GenreResponse } from "../../models/movies/genre-response";
-import { GenresResponse } from "../../models/movies/genres-response";
 import { Movie } from "../../models/movies/movie";
 import { MoviesFilter } from "../../models/movies/movies-filter";
 import { MovieResponse } from "../../models/movies/movie-response";
@@ -12,14 +10,12 @@ export interface MoviesState {
     movies: MovieResponse[];
     totalMovies: number;
     favoriteMovies: MovieResponse[];
-    genres: GenreResponse[];
 };
 
 const initialState: MoviesState = {
     movies: [],
     totalMovies: 0,
     favoriteMovies: JSON.parse(sessionStorage.getItem('favorite-movies') || '[]'),
-    genres: []
 };
 
 export const getMoviesAsync = (
@@ -130,6 +126,5 @@ export const {
 export const selectMovies = (state: RootState) => state.movies.movies;
 export const selectFavoriteMovies = (state: RootState) => state.movies.favoriteMovies;
 export const selectTotalMovies = (state: RootState) => state.movies.totalMovies;
-export const selectGenres = (state: RootState) => state.movies.genres;
 
 export default moviesSlice.reducer;

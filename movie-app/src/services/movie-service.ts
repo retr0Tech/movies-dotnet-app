@@ -1,6 +1,5 @@
 import { MovieSortOptions } from "../enums/movie-sort-options";
 import { MarkAsFavoriteBody, MarkAsFavoriteResponse } from "../models/movies/favorite-marker-body";
-import { GenreResponse } from "../models/movies/genre-response";
 import { Movie } from "../models/movies/movie";
 import { MovieDetail } from "../models/movies/movie-detail";
 import { MovieResponse } from "../models/movies/movie-response";

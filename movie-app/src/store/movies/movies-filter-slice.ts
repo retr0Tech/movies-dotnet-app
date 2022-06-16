@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { normalize, schema, denormalize } from "normalizr";
 import { MovieSortOptions } from "../../enums/movie-sort-options";
-import { GenreResponse } from "../../models/movies/genre-response";
 import { MoviesFilter } from "../../models/movies/movies-filter";
 import { NormalizedMoviesFilter, NormalizedSchemaMoviesFilter } from "../../models/movies/normalized-movies-filter";
 import { RootState } from "../index";
@@ -9,14 +8,11 @@ import { RootState } from "../index";
 export interface MoviesFilterState {
     moviesFilterResult: any;
     moviesFilter: NormalizedMoviesFilter;
-    moviesFilterGenres: GenreResponse[];
     favoriteMoviesFilterResult: any;
     favoriteMoviesFilter: NormalizedMoviesFilter;
-    favoriteMoviesFilterGenres: GenreResponse[];
 };
 
 const getMoviesFilterSchema = () => {
-    const withGenres = new schema.Entity('with_genres');
     const moviesFilter = new schema.Entity('moviesFilter', {});
     return moviesFilter;
 }
@@ -26,10 +22,8 @@ const defaultNormalizedMoviesFilter = normalize(defaultMoviesFilter, getMoviesFi
 const initialState: MoviesFilterState = {
     moviesFilterResult: defaultNormalizedMoviesFilter.result,
     moviesFilter: defaultNormalizedMoviesFilter.entities.moviesFilter,
-    moviesFilterGenres: defaultNormalizedMoviesFilter.entities.with_genres,
     favoriteMoviesFilterResult: defaultNormalizedMoviesFilter.result,
     favoriteMoviesFilter: defaultNormalizedMoviesFilter.entities.moviesFilter,
-    favoriteMoviesFilterGenres: defaultNormalizedMoviesFilter.entities.with_genres
 };
 
 export const moviesFilterSlice = createSlice({
@@ -41,14 +35,12 @@ export const moviesFilterSlice = createSlice({
             const normalizedMoviesFilter = normalize(moviesFilterClone, getMoviesFilterSchema()) as NormalizedSchemaMoviesFilter;
             state.moviesFilterResult = normalizedMoviesFilter.result;
             state.moviesFilter = normalizedMoviesFilter.entities.moviesFilter;
-            state.moviesFilterGenres = normalizedMoviesFilter.entities.with_genres;
         },
         setFavoriteMoviesFilter: (state, action: PayloadAction<MoviesFilter>) => {
             const moviesFilterClone = { ...action.payload };
             const normalizedMoviesFilter = normalize(moviesFilterClone, getMoviesFilterSchema()) as NormalizedSchemaMoviesFilter;
             state.favoriteMoviesFilterResult = normalizedMoviesFilter.result;
             state.favoriteMoviesFilter = normalizedMoviesFilter.entities.moviesFilter;
-            state.favoriteMoviesFilterGenres = normalizedMoviesFilter.entities.with_genres;
         }
     }
 });
@@ -67,7 +59,6 @@ export const selectMoviesFilter = (state: RootState) => {
 export const selectFavoriteMoviesFilter = (state: RootState) => {
     const entities = {
         moviesFilter: state.moviesFilter.favoriteMoviesFilter,
-        with_genres: state.moviesFilter.favoriteMoviesFilterGenres
     };
     return denormalize(state.moviesFilter.favoriteMoviesFilterResult, getMoviesFilterSchema(), entities) as MoviesFilter;
 };

@@ -1,4 +1,3 @@
-import { GenreResponse } from "./genre-response";
 import { MovieResponse } from "./movie-response";
 
 export class MovieDetail implements MovieResponse {
@@ -25,6 +24,5 @@ export class MovieDetail implements MovieResponse {
         public overview: string,
         // tslint:disable-next-line: variable-name
         public release_date: string,
-        public genres: GenreResponse[]
     ) {}
 }
