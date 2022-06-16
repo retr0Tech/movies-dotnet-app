@@ -13,6 +13,8 @@ const discoverPath = 'discover';
 const moviePath = 'movie';
 const accountPath = 'account';
 const favoritePath = 'favorite';
+const perPage = 12;
+
 
 export const getMovies = () => {
 	// debugger;
@@ -74,8 +76,8 @@ export const useMarkAsFavorite = () => {
 }
 export const getMoviesByPage = (movies: Movie[], page: number): Movie[] => {
     const moviesClone = [...movies];
-    const fromRecord: number = ((20 * page) - 20);
-    const toRecord: number = (20 * page);
+    const fromRecord: number = ((perPage * page) - perPage);
+    const toRecord: number = (perPage * page);
     return moviesClone.slice(fromRecord, toRecord);
 }
 export const applyMoviesFilters = (movies: Movie[], moviesFilter: MoviesFilter): Movie[] => {

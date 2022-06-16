@@ -27,7 +27,7 @@ export const MovieGrid = ({
     const [layout, setLayout] = useState('grid');
 	const [sortOption, setSortOption] = useState(moviesFilter.sort_by);
 	const [first, setFirst] = useState(0);
-	const perPage = 20;
+	const perPage = 12;
 
 	const sortOptions: SelectItem[] = [
         {label: 'Rating Asc', value: MovieSortOptions.VoteAverageAsc},
@@ -78,7 +78,7 @@ export const MovieGrid = ({
 						itemTemplate={itemTemplate}
 						lazy
 						paginator 
-						rows={20}
+						rows={perPage}
 						totalRecords={ totalRecords }
 						onPage={ onChangePage }
 						loading={ isLoading } />
