@@ -20,8 +20,6 @@ const accountId: string = process.env.REACT_APP_API_ACCOUNTID|| '';
 
 
 export const getMovies = () => {
-	// debugger;
-
     const _get = get<MoviesResponse>();
     return async (moviesFilter: MoviesFilter) => {
         return await _get(
@@ -154,13 +152,5 @@ export const sortMovies = (movies: Movie[], sortBy: MovieSortOptions): Movie[] =
             return sortByReleaseDateAscending(moviesClone);
         default:
             return moviesClone;
-    }
-}
-
-export const filterMoviesByGenresContained = (movies: Movie[], genres: GenreResponse[]): Movie[] => {
-    if (genres && genres.length > 0) {
-        return movies.filter((movie: Movie) => genres.every(x => movie.genre_ids.includes(x.id)));
-    } else {
-        return movies;
     }
 }
