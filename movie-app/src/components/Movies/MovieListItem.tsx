@@ -2,6 +2,7 @@ import { Rating } from "primereact/rating";
 import { Button } from 'primereact/button';
 import { Link } from "react-router-dom";
 import  defaultImg from '../../assets/defaultImg.png';
+import FavoriteMovie from "../FavoriteMarker";
 
 export const MovieListItem = () => {
 	return (movie: any) => {
@@ -22,7 +23,7 @@ export const MovieListItem = () => {
 					<div className="product-description" ><p >{movie.overview}</p></div>
 					<Rating value={movie.vote_average /2} readOnly cancel={false}></Rating>
 					<p>{movie.release_date}</p>
-					{/* <i className="pi pi-tag product-category-icon"></i><span className="product-category">{data.category}</span> */}
+					<FavoriteMovie movie={movie}></FavoriteMovie>
 				</div>
 				<div className="product-list-action">
 					<span className="product-price">{movie.vote_average}/10</span>

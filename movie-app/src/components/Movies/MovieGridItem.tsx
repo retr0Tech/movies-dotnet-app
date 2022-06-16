@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import  defaultImg from '../../assets/defaultImg.png';
 import { Movie } from "../../models/movies/movie";
+import FavoriteMovie from "../FavoriteMarker";
 
 export const MovieGridItem = () => {
 	
@@ -11,7 +12,7 @@ export const MovieGridItem = () => {
 		if (movie) {
 		return (<div className="col-12 md:col-4">
 			<div className="product-grid-item card">
-			<div className='product-badge' style={{float: 'left'}}><i className="pi pi-star"></i></div>
+			<div className='product-badge' style={{float: 'left'}}><FavoriteMovie movie={movie}></FavoriteMovie></div>
 
 				<div className="product-grid-item-top">
 					<div>

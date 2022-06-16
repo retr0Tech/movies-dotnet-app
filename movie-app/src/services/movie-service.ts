@@ -14,6 +14,9 @@ const moviePath = 'movie';
 const accountPath = 'account';
 const favoritePath = 'favorite';
 const perPage = 12;
+const sessionId: string = process.env.REACT_APP_API_SESSIONID|| '';
+const accountId: string = process.env.REACT_APP_API_ACCOUNTID|| '';
+
 
 
 export const getMovies = () => {
@@ -61,11 +64,9 @@ export const getFavoriteMoviesByPage = () => {
     }
 }
 
-export const useMarkAsFavorite = () => {
+export const markAsFavorite = () => {
     const _post = post<MarkAsFavoriteResponse, MarkAsFavoriteBody>();
     return async (
-        accountId: number,
-        sessionId: string,
         markAsFavoriteBody: MarkAsFavoriteBody
     ) => {
         return await _post(
