@@ -24,8 +24,7 @@ export const FavoriteMovie = ({
             }
         });
     }
-    const iconClassName = movie.isFavorite ? 'pi-star' : 'pi-star-o';
-    const actionLabel = movie.isFavorite ? 'Remover' : 'Agregar';
+    const iconClassName = movie.isFavorite ?  'pi-star-fill' : 'pi-star';
 
     return (
         <i
