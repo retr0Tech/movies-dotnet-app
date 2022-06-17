@@ -1,14 +1,11 @@
 import { DataView, DataViewLayoutOptions } from 'primereact/dataview';
-import { useEffect } from 'react';
+import { SelectItem } from 'primereact/selectitem';
 import { Dropdown, DropdownChangeParams } from "primereact/dropdown";
-import { MultiSelectChangeParams } from "primereact/multiselect";
-import { RatingChangeParams } from "primereact/rating";
 import { useState } from "react";
 import MovieListItem from './MovieListItem';
 import MovieGridItem from './MovieGridItem';
 import { MovieResponse } from '../../models/movies/movie-response';
 import { MoviesFilter } from '../../models/movies/movies-filter';
-import { SelectItem } from 'primereact/selectitem';
 import { MovieSortOptions } from '../../enums/movie-sort-options';
 
 export const MovieGrid = ({
@@ -76,6 +73,7 @@ export const MovieGrid = ({
 						layout={layout} 
 						header={header}
 						itemTemplate={itemTemplate}
+						first={ first }
 						lazy
 						paginator 
 						rows={perPage}
@@ -87,7 +85,3 @@ export const MovieGrid = ({
 	)
 }
 export default MovieGrid;
-
-function useMountEffect(arg0: () => void) {
-	throw new Error('Function not implemented.');
-}

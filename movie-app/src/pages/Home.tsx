@@ -1,8 +1,5 @@
-
-import { SelectItem } from 'primereact/selectitem';
 import { TabView, TabPanel } from 'primereact/tabview';import { useState, useEffect } from 'react';
 import { MovieGrid } from '../components/Movies/MovieGrid';
-import { MovieSortOptions } from '../enums/movie-sort-options';
 import { Movie } from '../models/movies/movie';
 import { MoviesFilter } from '../models/movies/movies-filter';
 import { applyMoviesFilters, getMovies, getMoviesByPage } from '../services/movie-service';
