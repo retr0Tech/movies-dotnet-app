@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D22A233B-5F99-4DB0-A0AF-CB07BAB24A14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.Api", "src\Movies.Api\Movies.Api.csproj", "{A7933C75-24D1-4E04-A042-36F9ED606192}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.Core", "src\Movies.Core\Movies.Core.csproj", "{1A974277-54BA-4326-B4A1-854290406532}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{0134408D-90D6-42B0-A70E-98C6AE29C814}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.Api.Tests", "test\Movies.Api.Tests\Movies.Api.Tests.csproj", "{9A87CB2A-CFF6-4C33-AFAB-02C1144D512B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.Core.Tests", "test\Movies.Core.Tests\Movies.Core.Tests.csproj", "{7E7C1270-5DB3-4ED4-A297-058BB85474D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.Service.Tests", "test\Movies.Service.Tests\Movies.Service.Tests.csproj", "{1820A7D4-0FFF-4267-AF8B-AD4660A41387}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.Services", "src\Movies.Services\Movies.Services.csproj", "{86699DFF-AFD6-4EEA-9375-CD296B55C457}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7933C75-24D1-4E04-A042-36F9ED606192}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7933C75-24D1-4E04-A042-36F9ED606192}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7933C75-24D1-4E04-A042-36F9ED606192}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7933C75-24D1-4E04-A042-36F9ED606192}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A974277-54BA-4326-B4A1-854290406532}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A974277-54BA-4326-B4A1-854290406532}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A974277-54BA-4326-B4A1-854290406532}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A974277-54BA-4326-B4A1-854290406532}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A87CB2A-CFF6-4C33-AFAB-02C1144D512B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A87CB2A-CFF6-4C33-AFAB-02C1144D512B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A87CB2A-CFF6-4C33-AFAB-02C1144D512B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A87CB2A-CFF6-4C33-AFAB-02C1144D512B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E7C1270-5DB3-4ED4-A297-058BB85474D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E7C1270-5DB3-4ED4-A297-058BB85474D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E7C1270-5DB3-4ED4-A297-058BB85474D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E7C1270-5DB3-4ED4-A297-058BB85474D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1820A7D4-0FFF-4267-AF8B-AD4660A41387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1820A7D4-0FFF-4267-AF8B-AD4660A41387}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1820A7D4-0FFF-4267-AF8B-AD4660A41387}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1820A7D4-0FFF-4267-AF8B-AD4660A41387}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86699DFF-AFD6-4EEA-9375-CD296B55C457}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86699DFF-AFD6-4EEA-9375-CD296B55C457}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86699DFF-AFD6-4EEA-9375-CD296B55C457}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86699DFF-AFD6-4EEA-9375-CD296B55C457}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A7933C75-24D1-4E04-A042-36F9ED606192} = {D22A233B-5F99-4DB0-A0AF-CB07BAB24A14}
+		{1A974277-54BA-4326-B4A1-854290406532} = {D22A233B-5F99-4DB0-A0AF-CB07BAB24A14}
+		{9A87CB2A-CFF6-4C33-AFAB-02C1144D512B} = {0134408D-90D6-42B0-A70E-98C6AE29C814}
+		{7E7C1270-5DB3-4ED4-A297-058BB85474D1} = {0134408D-90D6-42B0-A70E-98C6AE29C814}
+		{1820A7D4-0FFF-4267-AF8B-AD4660A41387} = {0134408D-90D6-42B0-A70E-98C6AE29C814}
+		{86699DFF-AFD6-4EEA-9375-CD296B55C457} = {D22A233B-5F99-4DB0-A0AF-CB07BAB24A14}
+	EndGlobalSection
+EndGlobal
