@@ -12,9 +12,9 @@ namespace Movies.Services
             _restServiceHelper = new RestServiceHelper(configuration);
         }
 
-        public Task<MoviesResponse> GetFavoriteMovies(int page, MovieSortOptions sortOption)
+        public Task<MoviesResponse> GetFavoriteMovies(int page)
         {
-            return _restServiceHelper.getFavoriteMovies(page, sortOption);
+            return _restServiceHelper.getFavoriteMovies(page);
         }
 
         public Task<Movie> GetMovie(int movieId)

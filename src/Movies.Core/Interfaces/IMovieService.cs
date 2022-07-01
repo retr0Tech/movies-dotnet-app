@@ -7,7 +7,7 @@ namespace Movies.Core
 
         Task<Movie> GetMovie(int movieId);
 
-        Task<MoviesResponse> GetFavoriteMovies(int page, MovieSortOptions sortOption);
+        Task<MoviesResponse> GetFavoriteMovies(int page);
 
         Task<bool> MarkAsFavorite(MarkAsFavoriteBody body);
 

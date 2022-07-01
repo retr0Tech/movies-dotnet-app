@@ -40,7 +40,7 @@ namespace Movies.Api.Controllers
             {
                 var response = await _MovieService.GetMovie(movieId);
                 if (response == null)
-                    throw new Exception();
+                    return StatusCode(404, $"Movie with id {movieId} not found");
                 return Ok(response);
             }
             catch
@@ -50,13 +50,14 @@ namespace Movies.Api.Controllers
 
         }
         [HttpGet("/getFavoriteMovies")]
-        public async Task<IActionResult> GetFavoriteMovies(int page = 1, MovieSortOptions sortOption = MovieSortOptions.PopularityDesc)
+        public async Task<IActionResult> GetFavoriteMovies(int page = 1)
         {
             try
             {
-                var response = await _MovieService.GetFavoriteMovies(page, sortOption);
+                var response = await _MovieService.GetFavoriteMovies(page);
                 if (response == null)
                     throw new Exception();
+
                 return Ok(response);
             }
             catch
@@ -71,7 +72,7 @@ namespace Movies.Api.Controllers
             var response = await _MovieService.MarkAsFavorite(body);
             if(response)
                 return Ok();
-            return StatusCode(500, $"a communication error has occurred, we couldn't mark the movie with id ${body.media_id}");
+            return StatusCode(500, $"a communication error has occurred, we couldn't mark the movie with id {body.media_id}");
         }
     }
 }

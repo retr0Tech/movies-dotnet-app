@@ -69,14 +69,14 @@ namespace Movies.Core
                 return response;
             }
         }
-        public async Task<MoviesResponse> getFavoriteMovies(int page, MovieSortOptions sortOption)
+        public async Task<MoviesResponse> getFavoriteMovies(int page)
         {
             using (var client = CreateClient())
             {
-                var result = await client.GetAsync($"{accountPath}/{accountId}/{favoritePath}/movies?session_id=${sessionId}&page=${ page}&sort_by={sortOption}");
+                var result = await client.GetAsync($"{accountPath}/{accountId}/{favoritePath}/movies?session_id={sessionId}&page={page}");
                 if (!result.IsSuccessStatusCode)
                 {
-                    return null;
+                    return new MoviesResponse();
 
                 }
                 var json = await result.Content.ReadAsStringAsync();
@@ -89,10 +89,9 @@ namespace Movies.Core
         {
             using (var client = CreateClient())
             {
-                var bodyContent = JsonConvert.SerializeObject(body);
-                var buffer = System.Text.Encoding.UTF8.GetBytes(bodyContent);
-                var _body = new ByteArrayContent(buffer);
-                var result = await client.PostAsync($"{accountPath}/${accountId}/${favoritePath}?session_id=${sessionId}", _body);
+                var mediaType = body.media_type.ToLower() == "string" ? "movie" : body.media_type;
+                StringContent jsonString = new StringContent($"{{ \"media_id\": \"{body.media_id}\", \"favorite\": \"{body.favorite}\", \"media_type\": \"{mediaType}\" }}", Encoding.UTF8, "application/json");
+                var result = await client.PostAsync($"{accountPath}/{accountId}/{favoritePath}?session_id={sessionId}", jsonString);
                 if (!result.IsSuccessStatusCode)
                 {
                     return false;
