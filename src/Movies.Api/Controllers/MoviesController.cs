@@ -66,6 +66,7 @@ namespace Movies.Api.Controllers
             }
 
         }
+
         [HttpPost("/markMovieAsFavorite")]
         public async Task<IActionResult> MarkFavoriteMovie(MarkAsFavoriteBody body)
         {
