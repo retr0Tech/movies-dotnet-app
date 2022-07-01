@@ -1,8 +1,8 @@
 ﻿using System;
 namespace Movies.Core
 {
-	public enum MovieSortOptions
-	{
+    public enum MovieSortOptions
+    {
         PopularityDesc,
         PopularityAsc,
         VoteAverageDesc,
@@ -11,5 +11,6 @@ namespace Movies.Core
         OriginalTitleAsc,
         ReleaseDateDesc,
         ReleaseDateAsc
+    }
 }
 
