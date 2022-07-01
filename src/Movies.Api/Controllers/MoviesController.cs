@@ -11,5 +11,9 @@ namespace Movies.Api.Controllers
     [ApiController]
     public class MoviesController : ControllerBase
     {
+        public MoviesController()
+        {
+
+        }
     }
 }

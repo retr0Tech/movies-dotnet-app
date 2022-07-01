@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "5GCX5Gp9AzMD1zCbXvB72bQCGMFD7i4Rq/u2k1zIp9WU1JWBfPiwHmmzz3KAPjhs6cRl5+kOKKye1DHp/9ymBA==",
+  "dgSpecHash": "oGk0Cm4Xk1qSI5m/Mbsq8cFxyatoBOFUiewLXtZ7tuE18yuGXvJ6i7teydMz7DGSyg28N6oAid03FAKemIKCHQ==",
   "success": true,
   "projectFilePath": "/Users/retr0tech/Projects/dotnet gbh test/elliot-ruiz-retr0_tech-2022-6-13-movies-app/src/Movies.Core/Movies.Core.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/retr0tech/.nuget/packages/microsoft.extensions.configuration/6.0.1/microsoft.extensions.configuration.6.0.1.nupkg.sha512",
+    "/Users/retr0tech/.nuget/packages/microsoft.extensions.configuration.abstractions/6.0.0/microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
+    "/Users/retr0tech/.nuget/packages/microsoft.extensions.configuration.binder/6.0.0/microsoft.extensions.configuration.binder.6.0.0.nupkg.sha512",
+    "/Users/retr0tech/.nuget/packages/microsoft.extensions.primitives/6.0.0/microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "/Users/retr0tech/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512",
+    "/Users/retr0tech/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
