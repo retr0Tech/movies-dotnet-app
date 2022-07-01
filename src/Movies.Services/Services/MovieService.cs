@@ -12,9 +12,9 @@ namespace Movies.Services
             _restServiceHelper = new RestServiceHelper(configuration);
         }
 
-        public Task<MoviesResponse> GetFavoriteMovies(MoviesFilter filters)
+        public Task<MoviesResponse> GetFavoriteMovies(int page, MovieSortOptions sortOption)
         {
-            return _restServiceHelper.getFavoriteMovies(filters.page, filters.sort_by);
+            return _restServiceHelper.getFavoriteMovies(page, sortOption);
         }
 
         public Task<Movie> GetMovie(int movieId)
@@ -22,9 +22,9 @@ namespace Movies.Services
             return _restServiceHelper.GetMovie(movieId);
         }
 
-        public Task<MoviesResponse> GetMovies(MoviesFilter filters)
+        public Task<MoviesResponse> GetMovies(int page, MovieSortOptions sortOption)
         {
-            return _restServiceHelper.GetMovies(filters.page, filters.sort_by);
+            return _restServiceHelper.GetMovies(page, sortOption);
         }
 
         public Task<bool> MarkAsFavorite(MarkAsFavoriteBody body)

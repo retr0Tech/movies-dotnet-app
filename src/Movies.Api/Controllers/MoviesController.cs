@@ -18,11 +18,11 @@ namespace Movies.Api.Controllers
             _MovieService = movieService;
         }
         [HttpGet("/getMovies")]
-        public async Task<IActionResult> GetMovies(MoviesFilter filters)
+        public async Task<IActionResult> GetMovies(int page = 1, MovieSortOptions sortOption = MovieSortOptions.PopularityDesc)
         {
             try
             {
-                var response = await _MovieService.GetMovies(filters);
+                var response = await _MovieService.GetMovies(page, sortOption);
                 if (response == null)
                     throw new Exception();
                 return Ok(response);
@@ -50,11 +50,11 @@ namespace Movies.Api.Controllers
 
         }
         [HttpGet("/getFavoriteMovies")]
-        public async Task<IActionResult> GetFavoriteMovies(MoviesFilter filters)
+        public async Task<IActionResult> GetFavoriteMovies(int page = 1, MovieSortOptions sortOption = MovieSortOptions.PopularityDesc)
         {
             try
             {
-                var response = await _MovieService.GetFavoriteMovies(filters);
+                var response = await _MovieService.GetFavoriteMovies(page, sortOption);
                 if (response == null)
                     throw new Exception();
                 return Ok(response);
