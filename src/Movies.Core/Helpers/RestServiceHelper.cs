@@ -39,7 +39,7 @@ namespace Movies.Core
             client.DefaultRequestHeaders.Add("Authorization", $"Bearer {moviesApiKey}");
             return client;
         }
-        public async Task<MoviesResponse?> GetMovies(int page, MovieSortOptions sortOption)
+        public async Task<MoviesResponse> GetMovies(int page, MovieSortOptions sortOption)
         {
             using (var client = CreateClient())
             {
@@ -54,7 +54,7 @@ namespace Movies.Core
                 return response;
             }
         }
-        public async Task<Movie?> GetMovie(int movieId)
+        public async Task<Movie> GetMovie(int movieId)
         {
             using (var client = CreateClient())
             {
@@ -69,7 +69,7 @@ namespace Movies.Core
                 return response;
             }
         }
-        public async Task<MoviesResponse?> getFavoriteMovies(int page, MovieSortOptions sortOption)
+        public async Task<MoviesResponse> getFavoriteMovies(int page, MovieSortOptions sortOption)
         {
             using (var client = CreateClient())
             {
@@ -100,7 +100,7 @@ namespace Movies.Core
                 var json = await result.Content.ReadAsStringAsync();
                 var response = JsonConvert.DeserializeObject<MarkAsFavoriteResponse>(json);
 
-                return response?.Success;
+                return response.Success;
             }
         }
     }

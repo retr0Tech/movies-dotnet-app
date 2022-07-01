@@ -12,4 +12,7 @@
   <ItemGroup>
     <Folder Include="Services\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Movies.Core\Movies.Core.csproj" />
+  </ItemGroup>
 </Project>

@@ -22,4 +22,12 @@
     <None Remove="Microsoft.OData.Core" />
     <None Remove="Microsoft.AspNet.OData" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Movies.Core\Movies.Core.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\Movies.Services\Movies.Services.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

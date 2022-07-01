@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "SLik5ludshokmXez0FatsEUMqNSNWVIqVceW/seJq/5DBqpUZpfEw50wXnqd/NwXH8uFLZxerV6P2okGnt8sPg==",
+  "dgSpecHash": "u+YBnYPI/tQzDUgDYLze/MsNJruNvdaSYCQQPm86Hfd52BGbiR5WFGglW1p20FUzr/A6wnHYZNlKKL3XNH4eew==",
   "success": true,
   "projectFilePath": "/Users/retr0tech/Projects/dotnet gbh test/elliot-ruiz-retr0_tech-2022-6-13-movies-app/src/Movies.Api/Movies.Api.csproj",
   "expectedPackageFiles": [
@@ -37,8 +37,12 @@
     "/Users/retr0tech/.nuget/packages/microsoft.diasymreader/1.3.0/microsoft.diasymreader.1.3.0.nupkg.sha512",
     "/Users/retr0tech/.nuget/packages/microsoft.dotnet.scaffolding.shared/6.0.6/microsoft.dotnet.scaffolding.shared.6.0.6.nupkg.sha512",
     "/Users/retr0tech/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "/Users/retr0tech/.nuget/packages/microsoft.extensions.configuration/6.0.1/microsoft.extensions.configuration.6.0.1.nupkg.sha512",
+    "/Users/retr0tech/.nuget/packages/microsoft.extensions.configuration.abstractions/6.0.0/microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
+    "/Users/retr0tech/.nuget/packages/microsoft.extensions.configuration.binder/6.0.0/microsoft.extensions.configuration.binder.6.0.0.nupkg.sha512",
     "/Users/retr0tech/.nuget/packages/microsoft.extensions.dependencyinjection/6.0.0/microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
     "/Users/retr0tech/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/6.0.0/microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "/Users/retr0tech/.nuget/packages/microsoft.extensions.primitives/6.0.0/microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "/Users/retr0tech/.nuget/packages/microsoft.net.stringtools/1.0.0/microsoft.net.stringtools.1.0.0.nupkg.sha512",
     "/Users/retr0tech/.nuget/packages/microsoft.netcore.platforms/2.1.2/microsoft.netcore.platforms.2.1.2.nupkg.sha512",
     "/Users/retr0tech/.nuget/packages/microsoft.netcore.targets/1.1.3/microsoft.netcore.targets.1.1.3.nupkg.sha512",

@@ -3,13 +3,13 @@ namespace Movies.Core
 {
 	public interface IMovieService
 	{
-        Task<MoviesResponse> getMovies(MoviesFilter filters);
+        Task<MoviesResponse> GetMovies(MoviesFilter filters);
 
-        Task<Movie> getMovie(int movieId);
+        Task<Movie> GetMovie(int movieId);
 
-        Task<MoviesResponse> getFavoriteMovies(MoviesFilter filters);
+        Task<MoviesResponse> GetFavoriteMovies(MoviesFilter filters);
 
-        Task<bool> markAsFavorite(MarkAsFavoriteBody body);
+        Task<bool> MarkAsFavorite(MarkAsFavoriteBody body);
 
     }
 }
